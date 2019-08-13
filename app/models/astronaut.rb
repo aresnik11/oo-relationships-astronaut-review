@@ -41,12 +41,30 @@ class Astronaut
   def join_shuttle(launch_date, shuttle)
     # compare shuttle.capacity against current # of astronauts on that shuttle
     # capacity should be GREATER THAN the current number of astronauts 
-    if shuttle.capacity > shuttle.missions.length
-      Mission.new(launch_date, self, shuttle)
+    if self.age < shuttle.minimum_age
+      puts "sorry, you are too young"
     else
-      puts "This shuttle is at capacity!"
+      if shuttle.capacity > shuttle.missions.length
+        Mission.new(launch_date, self, shuttle)
+      else
+        puts "This shuttle is at capacity!"
+      end
     end
+  end
 
+  def self.top_three
+    self.all.max_by(3) do |astronaut|
+      astronaut.missions.count
+    end
+  end
+
+  def fellow_mission_members
+    other_missions_on_my_shuttles = Mission.all.select do |mission|
+      self.shuttles.include?(mission.shuttle) && mission.astronaut != self
+    end
+    other_missions_on_my_shuttles.map do |mission|
+      mission.astronaut.name
+    end.uniq
   end
 
 end

@@ -9,10 +9,15 @@ gennady = Astronaut.new("Gennady Padalka", 61, "Pilot")
 peggy = Astronaut.new("Peggy Whitson", 59, "Biochemist")
 yuri = Astronaut.new("Yuri Gagarin", 34, "Cosmonaut")
 alyssa = Astronaut.new("Alyssa Carson", 18, "Astronaut in Training")
+amy = Astronaut.new("Amy", 16, "Astronaut in Training")
+
 
 columbia = Shuttle.new("OV-102", 4)
 discovery = Shuttle.new("OV-103", 5)
+discovery2 = Shuttle.new("OV-103", 5)
+discovery3 = Shuttle.new("OV-103", 5)
 endeavor = Shuttle.new("OV-105", 8)
+endeavor2 = Shuttle.new("OV-105", 8)
 dragon = Shuttle.new("Space X", 7)
 
 m1 = Mission.new(1981, peggy, columbia)
